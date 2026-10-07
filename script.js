@@ -21,7 +21,7 @@
   onScroll();
 
   // Rotating word in hero
-  const words = ["climate", "innovation", "AI policy", "research", "technology", "biodiversity"];
+  const words = ["heart health", "climate", "innovation", "AI policy", "research", "technology"];
   const word = document.querySelector(".rotator__word");
   if (word && !reduced) {
     let i = 0;
