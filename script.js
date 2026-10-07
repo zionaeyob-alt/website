@@ -21,7 +21,7 @@
   onScroll();
 
   // Rotating word in hero
-  const words = ["heart health", "climate", "innovation", "AI policy", "research", "technology"];
+  const words = ["innovation", "health research", "AI policy", "technology", "science"];
   const word = document.querySelector(".rotator__word");
   if (word && !reduced) {
     let i = 0;
@@ -51,21 +51,6 @@
     requestAnimationFrame(tick);
   };
 
-  // Split-flap effect for years on the departure board
-  const glyphs = "0123456789";
-  const flip = (el) => {
-    const final = el.textContent;
-    if (reduced) return;
-    let frame = 0;
-    const id = setInterval(() => {
-      frame++;
-      el.textContent = final.split("").map((c, idx) =>
-        frame > 6 + idx * 3 ? c : glyphs[Math.floor(Math.random() * glyphs.length)]
-      ).join("");
-      if (frame > 6 + final.length * 3) { clearInterval(id); el.textContent = final; }
-    }, 45);
-  };
-
   // Reveal on scroll
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
@@ -73,7 +58,6 @@
       const el = e.target;
       el.classList.add("is-visible");
       el.querySelectorAll("[data-count]").forEach(countUp);
-      el.querySelectorAll(".flip").forEach((f, k) => setTimeout(() => flip(f), k * 120));
       io.unobserve(el);
     });
   }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
