@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+catboost_info/
+flaml.log
+*.log
+
+# Generated outputs: keep the folders, not the contents
+data/processed/*
+models/*
+!*/.gitkeep
+!data/processed/.gitkeep
+!models/.gitkeep

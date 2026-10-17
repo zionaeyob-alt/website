@@ -1,0 +1,20 @@
+# Core data stack
+pandas>=2.2
+numpy>=1.26
+scikit-learn>=1.5
+
+# Visualisation
+matplotlib>=3.8
+seaborn>=0.13
+
+# Data access
+ucimlrepo>=0.0.7
+requests>=2.31
+
+# AutoML (FLAML with LightGBM/XGBoost learners)
+flaml[automl]>=2.3
+
+# Model persistence & notebooks
+joblib>=1.4
+jupyterlab>=4.2
+ipykernel>=6.29
