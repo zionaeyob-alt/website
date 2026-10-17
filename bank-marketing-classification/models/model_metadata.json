@@ -1,0 +1,120 @@
+{
+  "primary": {
+    "best_estimator": "lgbm",
+    "best_config": {
+      "n_estimators": 1240,
+      "num_leaves": 4,
+      "min_child_samples": 82,
+      "learning_rate": 0.09806260256066535,
+      "log_max_bin": 6,
+      "colsample_bytree": 0.8621717200746847,
+      "reg_alpha": 0.007110579148177942,
+      "reg_lambda": 38.404712336786574
+    },
+    "cv_roc_auc": 0.8017666509717767,
+    "threshold": 0.20175187266879757,
+    "features": [
+      "age",
+      "job",
+      "marital",
+      "education",
+      "default",
+      "housing",
+      "loan",
+      "contact",
+      "month",
+      "day_of_week",
+      "campaign",
+      "pdays",
+      "previous",
+      "poutcome",
+      "emp.var.rate",
+      "cons.price.idx",
+      "cons.conf.idx",
+      "euribor3m",
+      "nr.employed",
+      "previously_contacted"
+    ],
+    "test_metrics_tuned": {
+      "Accuracy": 0.8800388538125303,
+      "Balanced Acc.": 0.7583641215106733,
+      "Precision": 0.4744897959183674,
+      "Recall": 0.6012931034482759,
+      "F1": 0.5304182509505704,
+      "ROC-AUC": 0.8098312489383387,
+      "PR-AUC": 0.4791885135045008
+    },
+    "test_metrics_default": {
+      "Accuracy": 0.8992229237493929,
+      "Balanced Acc.": 0.6144208401751505,
+      "Precision": 0.6361111111111111,
+      "Recall": 0.24676724137931033,
+      "F1": 0.3555900621118012,
+      "ROC-AUC": 0.8098312489383387,
+      "PR-AUC": 0.4791885135045008
+    }
+  },
+  "benchmark": {
+    "best_estimator": "xgboost",
+    "best_config": {
+      "n_estimators": 620,
+      "max_leaves": 9,
+      "min_child_weight": 1.345689328454941,
+      "learning_rate": 0.03513747488591847,
+      "subsample": 0.8628114965887879,
+      "colsample_bylevel": 0.8645517069844122,
+      "colsample_bytree": 0.9171509896058663,
+      "reg_alpha": 0.0009765625,
+      "reg_lambda": 5.157073940660053
+    },
+    "cv_roc_auc": 0.949223419045692,
+    "threshold": 0.3261439800262451,
+    "features": [
+      "age",
+      "job",
+      "marital",
+      "education",
+      "default",
+      "housing",
+      "loan",
+      "contact",
+      "month",
+      "day_of_week",
+      "duration",
+      "campaign",
+      "pdays",
+      "previous",
+      "poutcome",
+      "emp.var.rate",
+      "cons.price.idx",
+      "cons.conf.idx",
+      "euribor3m",
+      "nr.employed",
+      "previously_contacted"
+    ],
+    "test_metrics_tuned": {
+      "Accuracy": 0.9108790675084992,
+      "Balanced Acc.": 0.8538245758073344,
+      "Precision": 0.5773524720893142,
+      "Recall": 0.7801724137931034,
+      "F1": 0.6636113657195234,
+      "ROC-AUC": 0.9525264884491252,
+      "PR-AUC": 0.6750286480433016
+    },
+    "test_metrics_default": {
+      "Accuracy": 0.9190140845070423,
+      "Balanced Acc.": 0.7648039819376027,
+      "Precision": 0.6653992395437263,
+      "Recall": 0.5657327586206896,
+      "F1": 0.6115317414094351,
+      "ROC-AUC": 0.9525264884491252,
+      "PR-AUC": 0.6750286480433016
+    }
+  },
+  "split": {
+    "test_size": 0.2,
+    "random_state": 42,
+    "stratified": true,
+    "budget_s": 180
+  }
+}

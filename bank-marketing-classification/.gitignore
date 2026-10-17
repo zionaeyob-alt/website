@@ -12,3 +12,4 @@ models/*
 !*/.gitkeep
 !data/processed/.gitkeep
 !models/.gitkeep
+!models/model_metadata.json

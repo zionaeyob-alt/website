@@ -90,6 +90,32 @@ python src/eda_visualization.py
 
 Writes four 300-DPI figures to `figures/` and the findings write-up to `report/eda_summary.md`.
 
+## AutoML training and evaluation
+
+```bash
+python src/train_and_evaluate.py              # 180 s FLAML search per model (~7 min total)
+python src/train_and_evaluate.py --budget 30  # quick run
+```
+
+Trains a realistic model (`duration` dropped) and a leakage benchmark (`duration` kept) on the
+same stratified 80/20 split, searching LightGBM, XGBoost, random forest and logistic regression
+with 5-fold CV on ROC-AUC. Tunes a decision threshold on out-of-fold training predictions, then
+evaluates on the test set. Writes `models/automl_*.pkl` (git-ignored; regenerate with the command
+above), `models/model_metadata.json`, figures 05–08 and `report/automl_evaluation_summary.md`.
+
+Load a saved model (from the project root, so `src.learners` can be imported):
+
+```python
+import joblib, json
+from src.data import load_clean
+model = joblib.load("models/automl_primary.pkl")
+meta = json.load(open("models/model_metadata.json"))["primary"]
+X = load_clean().drop(columns="y")[meta["features"]]
+X = X.astype({c: "category" for c in X.select_dtypes(exclude="number").columns})
+proba = model.predict_proba(X)[:, 1]
+calls = proba >= meta["threshold"]
+```
+
 ## Run
 
 ```bash
