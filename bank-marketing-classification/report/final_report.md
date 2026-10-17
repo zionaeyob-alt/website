@@ -126,7 +126,7 @@ class ScaledLogisticRegression(SKLearnEstimator):
         return {"C": {"domain": tune.loguniform(1e-3, 1e3), "init_value": 1.0}}
     def __init__(self, task="binary", **config):
         super().__init__(task, **config)
-        self.estimator_class = OneHotLogisticRegression  # OneHotEncoder + StandardScaler + LR
+        self.estimator_class = OneHotLogisticRegression  # one-hot + scaling + LR
 ```
 
 Because probabilities rarely exceed 0.5 at an 11% base rate, the F1-maximising threshold (**0.202**)

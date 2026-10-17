@@ -116,6 +116,16 @@ proba = model.predict_proba(X)[:, 1]
 calls = proba >= meta["threshold"]
 ```
 
+## Final report
+
+`report/final_report.md` is the source; `report/final_report.docx` is the Word version
+(US Letter, 11pt Calibri, single-spaced, cover page, figures sized to fit). Rebuild it after editing
+the Markdown with:
+
+```bash
+node scripts/build_report_docx.js      # needs the docx npm package: npm install -g docx
+```
+
 ## Run
 
 ```bash
