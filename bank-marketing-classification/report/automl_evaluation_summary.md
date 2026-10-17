@@ -103,8 +103,8 @@ Lowering the threshold to 0.202 finds **+329 more subscribers** at the cost of
 So when call capacity allows, the bank should **favour recall over precision**, i.e. a threshold
 below the F1-optimal one. The F1 threshold is a neutral starting point; the operating threshold
 should be set from the actual cost per call, the expected margin per deposit, and the number of
-calls the team can make. For example, if a deposit is worth 10× the cost of a call, calling anyone
-with a predicted probability above about 1/11 ≈ 0.09 has positive expected value.
+calls the team can make. For example, if a successful call nets 10× what an unsuccessful call costs,
+calling has positive expected value whenever p × 10 > (1 − p), i.e. above p = 1/11 ≈ 0.09.
 
 **Ranking view (how campaigns are actually run).** Sorting test clients by predicted probability:
 
