@@ -82,6 +82,14 @@ df = load_clean()                    # for modelling: `duration` dropped
 df_eda = load_clean(drop_leaky=False)  # for EDA: `duration` kept
 ```
 
+## Exploratory analysis
+
+```bash
+python src/eda_visualization.py
+```
+
+Writes four 300-DPI figures to `figures/` and the findings write-up to `report/eda_summary.md`.
+
 ## Run
 
 ```bash
