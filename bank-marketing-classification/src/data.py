@@ -33,3 +33,18 @@ def load_raw(name: str = "bank-additional-full", drop_leaky: bool = True) -> pd.
 
 def split_xy(df: pd.DataFrame):
     return df.drop(columns=[TARGET]), df[TARGET]
+
+
+CLEAN_PATH = PROJECT_ROOT / "data" / "cleaned_bank_data.csv"
+
+
+def load_clean(drop_leaky: bool = True) -> pd.DataFrame:
+    """Load the output of src/data_preprocessing.py (y already 0/1).
+
+    `duration` is dropped by default because it leaks the target; pass
+    drop_leaky=False for EDA or benchmark comparisons.
+    """
+    df = pd.read_csv(CLEAN_PATH)
+    if drop_leaky:
+        df = df.drop(columns=LEAKY_COLUMNS)
+    return df

@@ -10,6 +10,7 @@ Predict whether a client subscribes to a term deposit (`y`) from the
 bank-marketing-classification/
 ├── data/
 │   ├── raw/            # original UCI files (committed, read-only)
+│   ├── cleaned_bank_data.csv  # output of src/data_preprocessing.py
 │   └── processed/      # cleaned / feature-engineered data (git-ignored)
 ├── notebooks/          # exploratory Jupyter notebooks
 ├── scripts/            # runnable scripts (verify_env.py, fetch_data.py)
@@ -64,6 +65,22 @@ python scripts/verify_env.py --quick  # skip the FLAML run
 ```
 
 The script exits non-zero if anything is missing.
+
+## Preprocessing
+
+```bash
+python src/data_preprocessing.py
+```
+
+Verifies the raw file, removes 12 duplicate rows, keeps `unknown` as its own category,
+adds a `previously_contacted` flag (handles the `pdays = 999` sentinel), and maps `y` to 0/1.
+Writes `data/cleaned_bank_data.csv` (41,176 × 22) and `report/data_preprocessing_summary.md`.
+
+```python
+from src.data import load_clean
+df = load_clean()                    # for modelling: `duration` dropped
+df_eda = load_clean(drop_leaky=False)  # for EDA: `duration` kept
+```
 
 ## Run
 
